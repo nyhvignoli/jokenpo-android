@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageResultado"
+        android:id="@+id/resultImage"
         android:layout_width="140dp"
         android:layout_height="140dp"
         android:layout_marginTop="32dp"
@@ -28,7 +28,7 @@
         app:srcCompat="@drawable/padrao" />
 
     <TextView
-        android:id="@+id/textResultado"
+        android:id="@+id/resultText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -36,42 +36,42 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageResultado" />
+        app:layout_constraintTop_toBottomOf="@+id/resultImage" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/rockImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:onClick="selecionadoPedra"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        android:onClick="rockSelected"
+        app:layout_constraintEnd_toStartOf="@+id/paperImage"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textResultado"
+        app:layout_constraintTop_toBottomOf="@+id/resultText"
         app:srcCompat="@drawable/pedra" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/paperImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:onClick="selecionadoPapel"
-        app:layout_constraintEnd_toStartOf="@+id/imageView4"
+        android:onClick="paperSelected"
+        app:layout_constraintEnd_toStartOf="@+id/scissorImage"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
-        app:layout_constraintTop_toBottomOf="@+id/textResultado"
+        app:layout_constraintStart_toEndOf="@+id/rockImage"
+        app:layout_constraintTop_toBottomOf="@+id/resultText"
         app:srcCompat="@drawable/papel" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/scissorImage"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="32dp"
-        android:onClick="selecionadoTesoura"
+        android:onClick="scissorSelected"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/textResultado"
+        app:layout_constraintStart_toEndOf="@+id/paperImage"
+        app:layout_constraintTop_toBottomOf="@+id/resultText"
         app:srcCompat="@drawable/tesoura" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

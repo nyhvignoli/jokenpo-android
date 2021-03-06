@@ -17,25 +17,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void selecionadoPedra (View view){
+    public void rockSelected (View view){
 
-        this.opcaoSelecionada("pedra");
+        this.setSelectedOption("pedra");
     }
 
-    public void selecionadoPapel (View view){
+    public void paperSelected (View view){
 
-        this.opcaoSelecionada("papel");
+        this.setSelectedOption("papel");
     }
 
-    public void selecionadoTesoura (View view){
+    public void scissorSelected (View view){
 
-        this.opcaoSelecionada("tesoura");
+        this.setSelectedOption("tesoura");
     }
 
-    public void opcaoSelecionada (String escolhaUsuario){
+    public void setSelectedOption (String userChoice){
 
-        ImageView imagemResultado = findViewById(R.id.imageResultado);
-        TextView textoResultado = findViewById(R.id.textResultado);
+        ImageView imagemResultado = findViewById(R.id.resultImage);
+        TextView textoResultado = findViewById(R.id.resultText);
 
         int numero = new Random().nextInt(3);//0 1 2
         String [] opcoes = { "pedra", "papel", "tesoura"};
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         switch ( escolhaApp ){
             case "pedra" :
-                imagemResultado.setImageResource(R.drawable.pedra);
+                resu.setImageResource(R.drawable.pedra);
                 break;
             case "papel" :
                 imagemResultado.setImageResource(R.drawable.papel);
@@ -54,16 +54,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(
-                (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
-                (escolhaApp == "papel" && escolhaUsuario == "pedra") ||
-                (escolhaApp == "pedra" && escolhaUsuario == "tesoura")
+                (escolhaApp.equals("tesoura") && userChoice.equals("papel")) ||
+                (escolhaApp.equals("papel") && userChoice.equals("pedra")) ||
+                (escolhaApp.equals("pedra") && userChoice.equals("tesoura"))
         ){//App ganhador
             textoResultado.setText("Você perdeu :( ");
 
         }else if (
-                (escolhaUsuario == "tesoura" && escolhaApp == "papel") ||
-                (escolhaUsuario == "papel" && escolhaApp == "pedra") ||
-                (escolhaUsuario == "pedra" && escolhaApp == "tesoura")
+                (userChoice == "tesoura" && escolhaApp == "papel") ||
+                (userChoice == "papel" && escolhaApp == "pedra") ||
+                (userChoice == "pedra" && escolhaApp == "tesoura")
         ){//Usuario ganhador
             textoResultado.setText("Você ganhou :) ");
 
