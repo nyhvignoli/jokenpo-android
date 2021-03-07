@@ -3,6 +3,8 @@
 - [Português](#pt-readme)
 - [English](#en-readme)
 
+<img src="https://j.gifs.com/YW4X8p.gif" width="300px" alt="Jo-ken-po demo" />
+
 <a id="pt-readme"></a>
 ### PT
 Um dos primeiros Apps que desenvolvi, por volta de Junho de 2020, no curso de Desenvolvimento Android, por Jamilton Damasceno(Udemy).
@@ -49,11 +51,11 @@ Today, after more studies, I've decided to refactor this code based on Clean Cod
 * Open this project on Android Studio IDE.
 * Wait for `build.gradle(:app)` sync, it will automatically install the dependencies and setup the project.
 
-## Running in desktop:
+## Running on desktop:
 * Install an emulator of your choice and configure an AVD (Android Virtual Device), selecting the Smartphone version that you decided to emulate (min version: 14).
 * After this you may run the project using the `Shift+f10` shortcut.
 
-## Running in mobile device:
+## Running on mobile device:
 * Enable the developer options, connect your cell phone on a USB port and allow USB debbug in your device.
 * Wait for your computer to recognize the device and run the project use the `Shift+f10` shorcut.
 
