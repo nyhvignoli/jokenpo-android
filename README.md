@@ -6,7 +6,7 @@
 <img src="https://j.gifs.com/YW4X8p.gif" width="270px" alt="Jo-ken-po App demo" />
 
 <a id="pt-readme"></a>
-### PT
+### PT | [EN](#en-readme)
 Um dos primeiros Apps que desenvolvi, por volta de Junho de 2020, no curso de Desenvolvimento Android, por Jamilton Damasceno(Udemy).
 A ideia desse aplicativo é um jogo simples de Pedra, Papel e Tesoura (Jo-Ken-Po), onde o usuário pode escolher uma das opções enquanto a escolha do App é gerada aleatoriamente.
 Ao final, é exibida uma frase com o resultado da partida.
@@ -35,7 +35,7 @@ Divirta-se!
 ---
 
 <a id="en-readme"></a>
-### EN
+### EN | [PT](#pt-readme)
 One of the firsts Apps I've developed, around June of 2020, at the Android Development Course, by Jamilton Damasceno(Udemy).
 The main point of this aplication is a simple Jo-Ken-Po game, where the user may chose one option, while the App's choice is radomly generated.
 At the end of the round, a statement with the result is displayed.
