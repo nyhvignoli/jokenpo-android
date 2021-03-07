@@ -1,4 +1,9 @@
+<a name="languages"></a>
 # Jo-Ken-Po
+- [Português](#pt-readme)
+- [English](#en-readme)
+
+<a id="pt-readme"></a>
 ### PT
 Um dos primeiros Apps que desenvolvi, por volta de Junho de 2020, no curso de Desenvolvimento Android, por Jamilton Damasceno(Udemy).
 A ideia desse aplicativo é um jogo simples de Pedra, Papel e Tesoura (Jo-Ken-Po), onde o usuário pode escolher uma das opções enquanto a escolha do App é gerada aleatoriamente.
@@ -27,6 +32,7 @@ Divirta-se!
 
 ---
 
+<a id="en-readme"></a>
 ### EN
 One of the firsts Apps I've developed, around June of 2020, at the Android Development Course, by Jamilton Damasceno(Udemy).
 The main point of this aplication is a simple Jo-Ken-Po game, where the user may chose one option, while the App's choice is radomly generated.
@@ -41,7 +47,7 @@ Today, after more studies, I've decided to refactor this code based on Clean Cod
 ## Instructions:
 * Clone this repository on a directory of your choice through the following command `git clone <url>`.
 * Open this project on Android Studio IDE.
-* Wait for `build.gradle(:app)` sync, it will automatically install de dependencies and setup the project.
+* Wait for `build.gradle(:app)` sync, it will automatically install the dependencies and setup the project.
 
 ## Running in desktop:
 * Install an emulator of your choice and configure an AVD (Android Virtual Device), selecting the Smartphone version that you decided to emulate (min version: 14).
