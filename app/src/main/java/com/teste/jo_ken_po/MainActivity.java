@@ -18,62 +18,72 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void rockSelected (View view){
-
         this.setSelectedOption("pedra");
     }
 
     public void paperSelected (View view){
-
         this.setSelectedOption("papel");
     }
 
     public void scissorSelected (View view){
-
         this.setSelectedOption("tesoura");
     }
 
-    public void setSelectedOption (String userChoice){
-
-        ImageView imagemResultado = findViewById(R.id.resultImage);
-        TextView textoResultado = findViewById(R.id.resultText);
-
-        int numero = new Random().nextInt(3);//0 1 2
-        String [] opcoes = { "pedra", "papel", "tesoura"};
-        String escolhaApp = opcoes [ numero ];
-
-        switch ( escolhaApp ){
-            case "pedra" :
-                resu.setImageResource(R.drawable.pedra);
-                break;
-            case "papel" :
-                imagemResultado.setImageResource(R.drawable.papel);
-                break;
-            case "tesoura" :
-                imagemResultado.setImageResource(R.drawable.tesoura);
-                break;
-        }
-
-        if(
-                (escolhaApp.equals("tesoura") && userChoice.equals("papel")) ||
-                (escolhaApp.equals("papel") && userChoice.equals("pedra")) ||
-                (escolhaApp.equals("pedra") && userChoice.equals("tesoura"))
-        ){//App ganhador
-            textoResultado.setText("Você perdeu :( ");
-
-        }else if (
-                (userChoice == "tesoura" && escolhaApp == "papel") ||
-                (userChoice == "papel" && escolhaApp == "pedra") ||
-                (userChoice == "pedra" && escolhaApp == "tesoura")
-        ){//Usuario ganhador
-            textoResultado.setText("Você ganhou :) ");
-
-        }else{//Empate
-            textoResultado.setText("Empatamos ;) ");
-
-        }
-
-        System.out.println( "Item clicado: " + escolhaApp );
-
+    public void setSelectedOption (String userChoice) {
+        String appChoice = getAppChoice();
+        setResultImage(appChoice);
+        generateResult(appChoice, userChoice);
     }
 
+    public String getAppChoice () {
+        int number = new Random().nextInt(3); //0 1 2
+        String [] options = { "pedra", "papel", "tesoura" };
+        String appChoice = options [ number ];
+
+        return appChoice;
+    }
+
+    public void setResultImage (String appChoice) {
+        ImageView resultImage = findViewById(R.id.resultImage);
+
+        switch ( appChoice ){
+            case "pedra" :
+                resultImage.setImageResource(R.drawable.pedra);
+                break;
+            case "papel" :
+                resultImage.setImageResource(R.drawable.papel);
+                break;
+            case "tesoura" :
+                resultImage.setImageResource(R.drawable.tesoura);
+                break;
+        }
+    }
+
+    public void generateResult (String appChoice, String userChoice) {
+        TextView resultText = findViewById(R.id.resultText);
+
+        if ( checkIfWins(appChoice, userChoice)) { //The winner was App
+            resultText.setText("Você perdeu :( ");
+        } else if ( checkIfWins(userChoice, appChoice)) { //The winner was User
+            resultText.setText("Você ganhou :) ");
+        }else{//Empate
+            resultText.setText("Empatamos ;) ");
+        }
+    }
+
+    public Boolean checkIfWins (String firstPlayerChoice, String secondPlayerChoice) {
+        Boolean case1 = firstPlayerChoice.equals("tesoura") &&
+                secondPlayerChoice.equals("papel");
+
+        Boolean case2 = firstPlayerChoice.equals("papel") &&
+                secondPlayerChoice.equals("pedra");
+
+        Boolean case3 = firstPlayerChoice.equals("pedra") &&
+                secondPlayerChoice.equals("tesoura");
+
+        if ( case1 || case2 || case3 ) {
+            return true;
+        }
+        return false;
+    }
 }
