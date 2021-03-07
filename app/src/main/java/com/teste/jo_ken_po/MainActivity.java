@@ -17,63 +17,73 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void selecionadoPedra (View view){
-
-        this.opcaoSelecionada("pedra");
+    public void rockSelected (View view){
+        this.setSelectedOption("pedra");
     }
 
-    public void selecionadoPapel (View view){
-
-        this.opcaoSelecionada("papel");
+    public void paperSelected (View view){
+        this.setSelectedOption("papel");
     }
 
-    public void selecionadoTesoura (View view){
-
-        this.opcaoSelecionada("tesoura");
+    public void scissorSelected (View view){
+        this.setSelectedOption("tesoura");
     }
 
-    public void opcaoSelecionada (String escolhaUsuario){
+    public void setSelectedOption (String userChoice) {
+        String appChoice = getAppChoice();
+        setResultImage(appChoice);
+        generateResult(appChoice, userChoice);
+    }
 
-        ImageView imagemResultado = findViewById(R.id.imageResultado);
-        TextView textoResultado = findViewById(R.id.textResultado);
+    public String getAppChoice () {
+        int number = new Random().nextInt(3); //0 1 2
+        String [] options = { "pedra", "papel", "tesoura" };
+        String appChoice = options [ number ];
 
-        int numero = new Random().nextInt(3);//0 1 2
-        String [] opcoes = { "pedra", "papel", "tesoura"};
-        String escolhaApp = opcoes [ numero ];
+        return appChoice;
+    }
 
-        switch ( escolhaApp ){
+    public void setResultImage (String appChoice) {
+        ImageView resultImage = findViewById(R.id.resultImage);
+
+        switch ( appChoice ){
             case "pedra" :
-                imagemResultado.setImageResource(R.drawable.pedra);
+                resultImage.setImageResource(R.drawable.pedra);
                 break;
             case "papel" :
-                imagemResultado.setImageResource(R.drawable.papel);
+                resultImage.setImageResource(R.drawable.papel);
                 break;
             case "tesoura" :
-                imagemResultado.setImageResource(R.drawable.tesoura);
+                resultImage.setImageResource(R.drawable.tesoura);
                 break;
         }
-
-        if(
-                (escolhaApp == "tesoura" && escolhaUsuario == "papel") ||
-                (escolhaApp == "papel" && escolhaUsuario == "pedra") ||
-                (escolhaApp == "pedra" && escolhaUsuario == "tesoura")
-        ){//App ganhador
-            textoResultado.setText("Você perdeu :( ");
-
-        }else if (
-                (escolhaUsuario == "tesoura" && escolhaApp == "papel") ||
-                (escolhaUsuario == "papel" && escolhaApp == "pedra") ||
-                (escolhaUsuario == "pedra" && escolhaApp == "tesoura")
-        ){//Usuario ganhador
-            textoResultado.setText("Você ganhou :) ");
-
-        }else{//Empate
-            textoResultado.setText("Empatamos ;) ");
-
-        }
-
-        System.out.println( "Item clicado: " + escolhaApp );
-
     }
 
+    public void generateResult (String appChoice, String userChoice) {
+        TextView resultText = findViewById(R.id.resultText);
+
+        if ( checkIfWins(appChoice, userChoice)) { //The winner was App
+            resultText.setText("Você perdeu :( ");
+        } else if ( checkIfWins(userChoice, appChoice)) { //The winner was User
+            resultText.setText("Você ganhou :) ");
+        }else{//Empate
+            resultText.setText("Empatamos ;) ");
+        }
+    }
+
+    public Boolean checkIfWins (String firstPlayerChoice, String secondPlayerChoice) {
+        Boolean case1 = firstPlayerChoice.equals("tesoura") &&
+                secondPlayerChoice.equals("papel");
+
+        Boolean case2 = firstPlayerChoice.equals("papel") &&
+                secondPlayerChoice.equals("pedra");
+
+        Boolean case3 = firstPlayerChoice.equals("pedra") &&
+                secondPlayerChoice.equals("tesoura");
+
+        if ( case1 || case2 || case3 ) {
+            return true;
+        }
+        return false;
+    }
 }
