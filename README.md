@@ -3,7 +3,7 @@
 - [Português](#pt-readme)
 - [English](#en-readme)
 
-<img src="https://j.gifs.com/YW4X8p.gif" width="300px" alt="Jo-ken-po demo" />
+<img src="https://j.gifs.com/YW4X8p.gif" width="270px" alt="Jo-ken-po App demo" />
 
 <a id="pt-readme"></a>
 ### PT
